@@ -1,12 +1,21 @@
+# PermissionsEX Plugin
 name: ${project.name}
-main: ru.tehkode.permissions.bukkit.PermissionsEx
+
+# Miscellaneous
+description: "PermissionsEx - Powerful user and group permissions management plugin."
 version: ${project.version}
-authors: [Aeternum, cyberpwn, Rsl1122, t3hk0d3, zml]
-website: http://dev.bukkit.org/server-mods/permissionsex
-description: PermissionsEx - New powerful users and groups permissions management plugin.
+website: "http://dev.bukkit.org/server-mods/permissionsex"
+authors: ["Aeternum", "cyberpwn", "Rsl1122", "t3hk0d3", "xCykrix", "zml"]
+
+# Server Specifics
+main: "ru.tehkode.permissions.bukkit.PermissionsEx"
+api-version: "1.13"
+load: "STARTUP"
+
+# Available Commands
 commands:
   pex:
-    description: Provides access to Permissions commands and information.
+    description: "Provides access to Permissions commands and information."
     usage: |
            Usage:
            /<command> - Display help
@@ -77,16 +86,18 @@ commands:
            /<command> world <world> - Print <world> inheritance info
            /<command> world <world> inherit <parentWorlds> - Set <parentWorlds> for <world>
   promote:
-    description: Permission ladder promotion command.
+    description: "Permission ladder promotion command."
     usage: |
            Usage:
            /<command> <user> - Promotes <user> to next group
   demote:
-    description: Permission ladder demotion command.
+    description: "Permission ladder demotion command."
     usage: |
            Usage:
            /<command> <user> - Demotes <user> to previous group
+
+# Plugin Permissions
 permissions:
     permissionsex.disabled:
-        description: Apply this permission to players who should not have pex regex-based permission matching apply
+        description: "Apply this permission to players who should not have pex regex-based permission matching enabled."
         default: false

@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.tehkode</groupId>
 	<artifactId>PermissionsEx</artifactId>
-	<version>1.33.8</version>
+	<version>1.34.0</version>
 	<name>PermissionsEx</name>
-	<url>https://github.com/PEXPlugins/PermissionsEx</url>
+	<url>https://github.com/AeternumIndustries/PermissionsEx</url>
 	<properties>
 		<netbeans.hint.license>gpl2</netbeans.hint.license>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -13,24 +13,24 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<pex.scripts>${project.basedir}/scripts</pex.scripts>
 		<pex.fn>${project.basedir}/target/${project.name}-${project.version}.jar</pex.fn>
-		<documentation>https://pex.aeternum.network/</documentation>
+		<documentation>https://github.com/AeternumIndustries/PermissionsEx/wiki</documentation>
 		<bstats>https://bstats.org/plugin/bukkit/PermissionsEx</bstats>
 	</properties>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/PEXPlugins/PermissionsEx/issues</url>
+		<url>https://github.com/AeternumIndustries/PermissionsEx/issues</url>
 	</issueManagement>
 	<distributionManagement>
-		<repository>
-			<id>pex-repo</id>
-			<name>PermissionsEx Repository</name>
-			<url>http://pex-repo.aoeu.xyz/</url>
-		</repository>
+		<site>
+			<id>PermissionsEX-Releases</id>
+			<name>AeternumIndustries GitHub</name>
+			<url>https://github.com/AeternumIndustries/PermissionsEx/releases</url>
+		</site>
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:git://github.com/PEXPlugins/PermissionsEx.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/PEXPlugins/PermissionsEx.git</developerConnection>
-		<url>https://github.com/PEXPlugins/PermissionsEx.git</url>
+		<connection>scm:git:git@github.com:AeternumIndustries/PermissionsEx.git</connection>
+		<developerConnection>scm:git:git@github.com:AeternumIndustries/PermissionsEx.git</developerConnection>
+		<url>https://github.com/AeternumIndustries/PermissionsEx.git</url>
 	</scm>
 	<build>
 		<resources>
@@ -56,27 +56,6 @@
 						<phase>package</phase>
 						<configuration>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
-							<relocations>
-								<relocation>
-									<pattern>net.gravitydevelopment.updater</pattern>
-									<shadedPattern>ru.tehkode.libs.net.gravitydevelopment.updater</shadedPattern>
-								</relocation>
-								<relocation>
-									<pattern>org.apache</pattern>
-									<shadedPattern>ru.tehkode.libs.org.apache</shadedPattern>
-									<excludes>
-										<exclude>org.apache.commons.lang.*</exclude>
-									</excludes>
-								</relocation>
-								<relocation>
-									<pattern>com.mojang</pattern>
-									<shadedPattern>ru.tehkode.libs.com.mojang</shadedPattern>
-								</relocation>
-								<relocation>
-									<pattern>com.google.gson</pattern>
-									<shadedPattern>ru.tehkode.libs.com.google.gson</shadedPattern>
-								</relocation>
-							</relocations>
 						</configuration>
 					</execution>
 				</executions>
@@ -84,17 +63,20 @@
 		</plugins>
 	</build>
 	<dependencies>
+		<!-- Spigot Minecraft Server API | https://www.spigotmc.org/ -->
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.12.2-R0.1-SNAPSHOT</version>
+			<version>1.14.4-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Commons Database Connection Pooling | https://commons.apache.org/proper/commons-dbcp/ | ~156kb -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<!-- Mojang Profile Client | https://github.com/Mojang/AccountsClient | 8kb -->
 		<dependency>
 			<groupId>com.mojang</groupId>
 			<artifactId>AccountsClient</artifactId>
@@ -106,6 +88,12 @@
 			<artifactId>java-jwt</artifactId>
 			<version>3.3.0</version>
 		</dependency>
+		<!-- JSON Parser for Java | https://github.com/fangyidong/json-simple | ~23kb -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 		<!-- jBCrypt | Password Salt+Hash library | https://www.mindrot.org/projects/jBCrypt/ | ~17kb -->
 		<dependency>
 			<groupId>org.mindrot</groupId>
@@ -115,77 +103,49 @@
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>pex-repo</id>
-			<url>http://pex-repo.aoeu.xyz</url>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 		<repository>
 			<id>gravity-repo</id>
 			<url>http://repo.gravitydevelopment.net</url>
 		</repository>
 		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+			<id>elmakers-repo</id>
+			<url>http://maven.elmakers.com/repository/</url>
 		</repository>
 	</repositories>
 	<profiles>
 		<profile>
-			<!-- Im lazy -->
-			<id>cyberpwn</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.2</version>
-						<executions>
-							<execution>
-								<id>runbatchfile</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<executable>${pex.scripts}/cyberpwn-dev.bat</executable>
-							<arguments>
-								<argument>${pex.fn}</argument>
-							</arguments>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
 			<id>release</id>
 			<build>
 				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>2.2.1</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar-no-fork</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.9.1</version>
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
+<!--					<plugin>-->
+<!--						<groupId>org.apache.maven.plugins</groupId>-->
+<!--						<artifactId>maven-source-plugin</artifactId>-->
+<!--						<version>2.2.1</version>-->
+<!--						<executions>-->
+<!--							<execution>-->
+<!--								<id>attach-sources</id>-->
+<!--								<goals>-->
+<!--									<goal>jar-no-fork</goal>-->
+<!--								</goals>-->
+<!--							</execution>-->
+<!--						</executions>-->
+<!--					</plugin>-->
+<!--					<plugin>-->
+<!--						<groupId>org.apache.maven.plugins</groupId>-->
+<!--						<artifactId>maven-javadoc-plugin</artifactId>-->
+<!--						<version>2.9.1</version>-->
+<!--						<executions>-->
+<!--							<execution>-->
+<!--								<id>attach-javadocs</id>-->
+<!--								<goals>-->
+<!--									<goal>jar</goal>-->
+<!--								</goals>-->
+<!--							</execution>-->
+<!--						</executions>-->
+<!--					</plugin>-->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
