@@ -11,7 +11,6 @@ authors: ["Aeternum", "cyberpwn", "Rsl1122", "t3hk0d3", "xCykrix", "zml"]
 main: "ru.tehkode.permissions.bukkit.PermissionsEx"
 api-version: "1.13"
 load: "STARTUP"
-softdepend: [ "Vault" ]
 
 # Available Commands
 commands:
