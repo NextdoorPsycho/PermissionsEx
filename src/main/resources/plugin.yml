@@ -2,7 +2,7 @@
 name: ${project.name}
 
 # Miscellaneous
-description: "PermissionsEx - New powerful users and groups permissions management plugin."
+description: "PermissionsEx - Powerful user and group permissions management plugin."
 version: ${project.version}
 website: "http://dev.bukkit.org/server-mods/permissionsex"
 authors: ["Aeternum", "cyberpwn", "Rsl1122", "t3hk0d3", "xCykrix", "zml"]
