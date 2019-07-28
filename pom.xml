@@ -28,9 +28,9 @@
 		</site>
 	</distributionManagement>
 	<scm>
-		<connection>scm:git:git://github.com/PEXPlugins/PermissionsEx.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/PEXPlugins/PermissionsEx.git</developerConnection>
-		<url>https://github.com/PEXPlugins/PermissionsEx.git</url>
+		<connection>scm:git:git@github.com:AeternumIndustries/PermissionsEx.git</connection>
+		<developerConnection>scm:git:git@github.com:AeternumIndustries/PermissionsEx.git</developerConnection>
+		<url>https://github.com/AeternumIndustries/PermissionsEx.git</url>
 	</scm>
 	<build>
 		<resources>
