@@ -337,7 +337,7 @@ public class PermissionsEx extends JavaPlugin implements NativeInterface {
 
 	@Override
 	public UUID getServerUUID() {
-		return UUID.nameUUIDFromBytes(Bukkit.getServer().getServerId().getBytes());
+		return UUID.nameUUIDFromBytes((Bukkit.getServer().getName() + Bukkit.getServer().getMotd() + Bukkit.getServer().getVersion() + Bukkit.getServer().getBukkitVersion() + Bukkit.getServer().getPort()).getBytes());
 	}
 
 	@Override

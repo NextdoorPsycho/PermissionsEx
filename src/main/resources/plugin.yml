@@ -1,9 +1,17 @@
+# PermissionsEX Plugin
 name: ${project.name}
-main: ru.tehkode.permissions.bukkit.PermissionsEx
-version: ${project.version}
-authors: [Aeternum, cyberpwn, Rsl1122, t3hk0d3, zml]
-website: http://dev.bukkit.org/server-mods/permissionsex
+
+# Meta-Data
 description: PermissionsEx - New powerful users and groups permissions management plugin.
+version: ${project.version}
+website: http://dev.bukkit.org/server-mods/permissionsex
+authors: [Aeternum, cyberpwn, Rsl1122, t3hk0d3, xCykrix, zml]
+
+# Server Specifics
+main: ru.tehkode.permissions.bukkit.PermissionsEx
+api-version: "1.13"
+
+# Available Commands
 commands:
   pex:
     description: Provides access to Permissions commands and information.
