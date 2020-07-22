@@ -5,3 +5,6 @@ This is a revived repository of PermissionsEX forked off 1.23.4. It has been cle
 PermissionsEx is a powerful permissions plugin for Bukkit powered servers
 
 For instuctions please visit the wiki.
+
+
+Yep
